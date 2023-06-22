@@ -14,7 +14,10 @@ class SantriController extends Controller
      */
     public function index()
     {
-        return view('admin.santri.santri');
+        $data = [
+            'santri' => Santri::all()
+        ];
+        return view('admin.santri.santri',$data);
     }
 
     /**
@@ -35,7 +38,17 @@ class SantriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'nama_santri' => 'required'
+           ];
+           $this->validate($request,$rules);
+    
+           Santri::create(
+            [
+                'nama_santri' => $request->nama_santri
+            ]
+            );
+            return redirect('/santri');
     }
 
     /**
@@ -55,9 +68,12 @@ class SantriController extends Controller
      * @param  \App\Models\Santri  $santri
      * @return \Illuminate\Http\Response
      */
-    public function edit(Santri $santri)
+    public function edit(Santri $santri, $id)
     {
-        //
+        $data = [
+            'santri' => Santri::find($id)
+        ];
+        return view('admin.santri.editsantri', $data);
     }
 
     /**
@@ -67,9 +83,19 @@ class SantriController extends Controller
      * @param  \App\Models\Santri  $santri
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Santri $santri)
+    public function update(Request $request, Santri $santri, $id)
     {
-        //
+        $rules = [
+            'nama_santri' => 'required'
+           ];
+           $this->validate($request,$rules);
+
+           $santri = Santri::find($id);
+           $santri->nama_santri = $request->input('nama_santri');
+
+           $santri->update();
+
+           return redirect('/santri');
     }
 
     /**
@@ -78,8 +104,12 @@ class SantriController extends Controller
      * @param  \App\Models\Santri  $santri
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Santri $santri)
+    public function destroy(Santri $santri, $id)
     {
-        //
+        $santri = Santri::find($id);
+
+        $santri->delete();
+
+        return redirect('/santri');
     }
 }

@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\SantriController;
 use App\Http\Controllers\SekolahController;
+use App\Models\Pembayaran;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,11 +25,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('home', [HomeController::class,'index']);
+Route::get('weblogin', [LoginController::class,'login']);
+
+Route::get('dashboard', [HomeController::class,'index']);
 
 Route::get('santri', [SantriController::class,'index']);
 
 Route::get('tambahsantri', [SantriController::class,'create']);
+Route::post('post_santri', [SantriController::class,'store'])->name('santri.store');
+Route::get('editsantri/{id}', [SantriController::class,'edit'])->name('edit.santri');
+Route::post('update_santri/{id}', [SantriController::class,'update'])->name('santri.update');
+Route::get('hapus/{id}', [SantriController::class,'destroy'])->name('hapus.santri');
 
 Route::get('sekolah', [SekolahController::class,'index']);
 
@@ -36,3 +46,11 @@ Route::post('update_sekolah/{id}', [SekolahController::class,'update'])->name('s
 Route::get('hapus/{id}', [SekolahController::class,'destroy'])->name('hapus.sekolah');
 
 Route::get('pembayaran', [PembayaranController::class,'index']);
+
+Route::get('tambahpembayaran', [PembayaranController::class,'create']);
+Route::post('post_pembayaran', [PembayaranController::class,'store'])->name('pembayaran.store');
+Route::get('editspembayaran/{id}', [PembayaranController::class,'edit'])->name('edit.pembayaran');
+Route::post('update_pembayaran/{id}', [PembayaranController::class,'update'])->name('pembayaran.update');
+Route::get('hapus/{id}', [PembayaranController::class,'destroy'])->name('hapus.pembayaran');
+
+Auth::routes();

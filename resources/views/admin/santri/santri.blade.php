@@ -4,12 +4,14 @@
 
 @section('content')
 
-<!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data Tabel Pendaftaran</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Daftar Peserta</h6>
     </div>
     <div class="card-body">
+        <div class="d-flex justify-content-end mb-4">
+            <a href="/tambahsantri" class="btn btn-primary btn-sm">Tambah</a>
+        </div>
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
@@ -23,21 +25,21 @@
                         <th>Sekolah</th>
                     </tr>
                 <tbody>
-                   </tr>
+                    @foreach ($santri as $s)
+                        
                     <tr>
-                        <td>Ahmad Nur Kholis</td>
-                        <td>64286066</td>
-                        <td>3514112603000002</td>
-                        <td>Laki-laki</td>
-                        <td>Pasuruan</td>
-                        <td>20/09/2002</td>
-                        <td>MTs Babul Futuh</td>
+                        <td>{{$s->nama_santri}}</td>
+                        <td>200</td>
+                        <td>
+                            <a href="{{route('edit.santri', $s->id)}}" class="btn btn-info btn-sm">edit</a>
+                            <a href="{{route('hapus.santri', $s->id)}}" class="btn btn-danger btn-sm">hapus</a>
+                        </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
 
 @endsection

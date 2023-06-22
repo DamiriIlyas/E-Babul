@@ -4,10 +4,9 @@
 
 @section('content')
 
-<!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data Tabel Pembayaran</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Lunas</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -15,23 +14,15 @@
                 <thead>
                     <tr>
                         <th>Nama Lengkap</th>
-                        <th>NISN</th>
-                        <th>NIK</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Tempat Lahir</th>
-                        <th>Tanggal Lahir</th>
                         <th>Sekolah</th>
+                        <th>Total Pembayaran</th>
                     </tr>
                 <tbody>
                    </tr>
                     <tr>
                         <td>Ahmad Nur Kholis</td>
-                        <td>64286066</td>
-                        <td>3514112603000002</td>
-                        <td>Laki-laki</td>
-                        <td>Pasuruan</td>
-                        <td>20/09/2002</td>
-                        <td>MTs Babul Futuh</td>
+                        <td>Madrasah Tsanawiyah</td>
+                        <td>Rp.700.000</td>
                     </tr>
                 </tbody>
             </table>

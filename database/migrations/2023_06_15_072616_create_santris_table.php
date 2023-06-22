@@ -16,18 +16,18 @@ return new class extends Migration
         Schema::create('santris', function (Blueprint $table) {
             $table->id();
             $table->string('nama_santri');
-            $table->string('nisn');
-            $table->string('nik');
+            $table->integer('nisn');
+            $table->integer('nik');
             $table->string('jenis_kelamin');
             $table->string('tempat_lahir');
-            $table->string('tanggal_lahir');
+            $table->integer('tanggal_lahir');
             $table->string('alamat_lengkap');
-            $table->string('tahun_lulus');
+            $table->integer('tahun_lulus');
             $table->string('nama_wali');
-            $table->string('nik_wali');
+            $table->integer('nik_wali');
             $table->string('alamat_wali');
             $table->string('pekerjaan_wali');
-            $table->string('nomor_telepon');
+            $table->integer('nomor_telepon');
             $table->string('id_sekolah');
             $table->string('foto');
             $table->timestamps();

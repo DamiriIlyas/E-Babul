@@ -11,13 +11,13 @@
 
     <title>@yield('title')</title>
 
-    <!-- Custom fonts for this template-->
-    <link href="{{asset('templateadmin/admin')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts -->
+    <link href="{{asset('templateadmin/admin/')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- Custom styles -->
     <link href="{{asset('templateadmin/admin')}}/css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
@@ -77,11 +77,8 @@
               <hr class="sidebar-divider my-0">
             
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            
-
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            <div class="text-center d-none d-md-inline mt-4">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
@@ -108,9 +105,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Pilihan Menu</span>
+                                <i class="fas fa-coffee"></i>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
