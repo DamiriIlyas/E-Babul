@@ -68,7 +68,7 @@
               <hr class="sidebar-divider my-0">
 
             <li class="nav-item">
-                <a class="nav-link" href="/pembayaran">
+                <a class="nav-link" href="/order">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Pembayaran</span></a>
             </li>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\SantriController;
 use App\Http\Controllers\SekolahController;
@@ -50,13 +51,10 @@ Route::group(['middleware' => 'auth'], function()
     Route::post('update_sekolah/{id}', [SekolahController::class,'update'])->name('sekolah.update');
     Route::get('hapus/{id}', [SekolahController::class,'destroy'])->name('hapus.sekolah');
     
-    Route::get('pembayaran', [PembayaranController::class,'index']);
-    
-    Route::get('tambahp embayaran', [PembayaranController::class,'create']);
-    Route::post('post_pembayaran', [PembayaranController::class,'store'])->name('pembayaran.store');
-    Route::get('editspembayaran/{id}', [PembayaranController::class,'edit'])->name('edit.pembayaran');
-    Route::post('update_pembayaran/{id}', [PembayaranController::class,'update'])->name('pembayaran.update');
-    Route::get('hapus/{id}', [PembayaranController::class,'destroy'])->name('hapus.pembayaran');
+    Route::get('/order', [OrderController::class,'index']);
+
+    Route::post('total_order', [OrderController::class,'store'])->name('order.store');
+
 });
 
 // Auth::routes();
