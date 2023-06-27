@@ -44,12 +44,33 @@
               <input type="number" name="tahun_lulus" class="form-control">
             </div>
             <div class="mb-3">
-              <label for="exampleInput" class="form-label">Pilihan Sekolah</label>
-              <input type="text" name="id_sekolah" class="form-control">
+              <label for="exampleInput" class="form-label">Nama Wali</label>
+              <input type="text" name="nama_wali" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInput" class="form-label">NIK Wali</label>
+              <input type="number" name="nik_wali" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInput" class="form-label">Alamat Wali</label>
+              <input type="text" name="alamat_wali" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInput" class="form-label">Pekerjaan Wali</label>
+              <input type="text" name="pekerjaan_wali" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInput" class="form-label">Nomor telepon</label>
+              <input type="number" name="nomor_telepon" class="form-control">
             </div>
             
+            {{-- <div class="mb-3">
+              <label for="exampleInput" class="form-label">Pilihan Sekolah</label>
+              <input type="text" name="id_sekolah" class="form-control">
+            </div> --}}
+            
             <button type="submit" class="btn btn-primary">Kirim</button>
-          </action=>
+        </form>
     </div>
 </div>
 

@@ -22,19 +22,38 @@
                         <th>Jenis Kelamin</th>
                         <th>Tempat Lahir</th>
                         <th>Tanggal Lahir</th>
-                        <th>Sekolah</th>
+                        <th>Alamat Lengkap</th>
+                        <th>Asal Sekolah</th>
+                        <th>Tahun Lulus</th>
+                        <th>Nama Wali</th>
+                        <th>NIK Wali</th>
+                        <th>Alamat Wali</th>
+                        <th>Pekerjaan Wali</th>
+                        <th>Nomor Telepon</th>
                     </tr>
                 <tbody>
-                    @foreach ($santri as $s)
-                        
-                    <tr>
-                        <td>{{$s->nama_santri}}</td>
-                        <td>200</td>
+                    @foreach ($santri as $no => $s)
+                    <th scope="row">{{ ++$no }}</th>
+                    <td>{{ $s->nama_santri }}</td>
+                    <td>{{ $s->nisn }}</td>
+                    <td>{{ $s->nik }}</td>
+                    <td>{{ $s->jenis_kelamin }}</td>
+                    <td>{{ $s->tempat_lahir }}</td>
+                    <td>{{ $s->tanggal_lahir }}</td>
+                    <td>{{ $s->alamat_lengkap }}</td>
+                    <td>{{ $s->asal_sekolah }}</td>
+                    <td>{{ $s->tahun_lulus }}</td>
+                    <td>{{ $s->nama_wali }}</td>
+                    <td>{{ $s->nik_wali }}</td>
+                    <td>{{ $s->alamat_wali }}</td>
+                    <td>{{ $s->pekerjaan_wali }}</td>
+                    <td>{{ $s->nomor_telepon }}</td>
+                    <td>
                         <td>
-                            <a href="{{route('edit.santri', $s->id)}}" class="btn btn-info btn-sm">edit</a>
-                            <a href="{{route('hapus.santri', $s->id)}}" class="btn btn-danger btn-sm">hapus</a>
+                            {{-- <a href="{{route('edit.santri', $s->id)}}" class="btn btn-info btn-sm">edit</a>
+                            <a href="{{route('hapus.santri', $s->id)}}" class="btn btn-danger btn-sm">hapus</a> --}}
                         </td>
-                    </tr>
+                    </td>
                     @endforeach
                 </tbody>
             </table>
