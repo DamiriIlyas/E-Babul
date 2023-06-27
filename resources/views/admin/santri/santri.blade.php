@@ -33,6 +33,7 @@
                     </tr>
                 <tbody>
                     @foreach ($santri as $no => $s)
+                    <tr>
                     <th scope="row">{{ ++$no }}</th>
                     <td>{{ $s->nama_santri }}</td>
                     <td>{{ $s->nisn }}</td>
@@ -50,10 +51,11 @@
                     <td>{{ $s->nomor_telepon }}</td>
                     <td>
                         <td>
-                            {{-- <a href="{{route('edit.santri', $s->id)}}" class="btn btn-info btn-sm">edit</a>
-                            <a href="{{route('hapus.santri', $s->id)}}" class="btn btn-danger btn-sm">hapus</a> --}}
+                            <a href="" class="btn btn-info btn-sm">edit</a>
+                            <a href="" class="btn btn-danger btn-sm">hapus</a>
                         </td>
                     </td>
+                </tr>
                     @endforeach
                 </tbody>
             </table>

@@ -25,32 +25,38 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('weblogin', [LoginController::class,'login']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/postlogin', [AuthController::class, 'postlogin']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('dashboard', [HomeController::class,'index']);
+// Auth::routes();
+Route::group(['middleware' => 'auth'], function()
+{    
+    Route::get('/home', [HomeController::class,'index']);
+    
+    Route::get('santri', [SantriController::class,'index']);
+    
+    Route::get('tambahsantri', [SantriController::class,'create']);
+    Route::post('post_santri', [SantriController::class,'store'])->name('santri.store');
+    Route::get('editsantri/{id}', [SantriController::class,'edit'])->name('edit.santri');
+    Route::post('update_santri/{id}', [SantriController::class,'update'])->name('santri.update');
+    Route::get('hapus/{id}', [SantriController::class,'destroy'])->name('hapus.santri');
+    
+    Route::get('sekolah', [SekolahController::class,'index']);
+    
+    Route::get('tambahsekolah', [SekolahController::class,'create']);
+    Route::post('post_sekolah', [SekolahController::class,'store'])->name('sekolah.store');
+    Route::get('editsekolah/{id}', [SekolahController::class,'edit'])->name('edit.sekolah');
+    Route::post('update_sekolah/{id}', [SekolahController::class,'update'])->name('sekolah.update');
+    Route::get('hapus/{id}', [SekolahController::class,'destroy'])->name('hapus.sekolah');
+    
+    Route::get('pembayaran', [PembayaranController::class,'index']);
+    
+    Route::get('tambahp embayaran', [PembayaranController::class,'create']);
+    Route::post('post_pembayaran', [PembayaranController::class,'store'])->name('pembayaran.store');
+    Route::get('editspembayaran/{id}', [PembayaranController::class,'edit'])->name('edit.pembayaran');
+    Route::post('update_pembayaran/{id}', [PembayaranController::class,'update'])->name('pembayaran.update');
+    Route::get('hapus/{id}', [PembayaranController::class,'destroy'])->name('hapus.pembayaran');
+});
 
-Route::get('santri', [SantriController::class,'index']);
-
-Route::get('tambahsantri', [SantriController::class,'create']);
-Route::post('post_santri', [SantriController::class,'store'])->name('santri.store');
-Route::get('editsantri/{id}', [SantriController::class,'edit'])->name('edit.santri');
-Route::post('update_santri/{id}', [SantriController::class,'update'])->name('santri.update');
-Route::get('hapus/{id}', [SantriController::class,'destroy'])->name('hapus.santri');
-
-Route::get('sekolah', [SekolahController::class,'index']);
-
-Route::get('tambahsekolah', [SekolahController::class,'create']);
-Route::post('post_sekolah', [SekolahController::class,'store'])->name('sekolah.store');
-Route::get('editsekolah/{id}', [SekolahController::class,'edit'])->name('edit.sekolah');
-Route::post('update_sekolah/{id}', [SekolahController::class,'update'])->name('sekolah.update');
-Route::get('hapus/{id}', [SekolahController::class,'destroy'])->name('hapus.sekolah');
-
-Route::get('pembayaran', [PembayaranController::class,'index']);
-
-Route::get('tambahpembayaran', [PembayaranController::class,'create']);
-Route::post('post_pembayaran', [PembayaranController::class,'store'])->name('pembayaran.store');
-Route::get('editspembayaran/{id}', [PembayaranController::class,'edit'])->name('edit.pembayaran');
-Route::post('update_pembayaran/{id}', [PembayaranController::class,'update'])->name('pembayaran.update');
-Route::get('hapus/{id}', [PembayaranController::class,'destroy'])->name('hapus.pembayaran');
-
-Auth::routes();
+// Auth::routes();

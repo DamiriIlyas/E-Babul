@@ -4,55 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use App\Models\User;
-use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
-    public function register(Request $request)
+    // public function __construct()
+    // {
+    //     $this->middleware('guest')->except('logout');
+    // }
+    public function login()
     {
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-
-        $user = User::create([
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-        ]);
-
-        return response()->json([
-            'message' => 'Registration Successfull'
-        ], 201);
+        return view('auth.login');
     }
-
-    public function login(Request $request)
+    public function postlogin(Request $request)
     {
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required',
-        ]);
-    
-    if(!Auth::attempt($request->only('username', 'password'))){
-        throw ValidationException::withMessages([
-            'username' => ["Username tidak ditemukan"],
-        ]);
+        if (Auth::attempt($request->only('email','password'))) {
+            return redirect('/home');
+        }
+        return redirect('/login');
     }
-    
-    $user = User::where('username', $request->username)->first();
-
-    return response()->json([
-        'message' => 'Login successful',
-        'acces_token' => $user->createToken('auth_token')->plainTextToken,
-    ], 200);
-    }
-
-    public function logout(Request $request)
+    public function logout()
     {
-        $request->user()->tokens()->delete();
-
-        return response()->json(['message' => 'Logged out']);
+        Auth::logout();
+        return redirect('/login');
     }
-
 }
