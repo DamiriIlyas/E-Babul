@@ -36,7 +36,6 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/home', [HomeController::class,'index']);
     
     Route::get('santri', [SantriController::class,'index']);
-    
     Route::get('tambahsantri', [SantriController::class,'create']);
     Route::post('post_santri', [SantriController::class,'store'])->name('santri.store');
     Route::get('editsantri/{id}', [SantriController::class,'edit'])->name('edit.santri');
@@ -44,7 +43,6 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('hapus/{id}', [SantriController::class,'destroy'])->name('hapus.santri');
     
     Route::get('sekolah', [SekolahController::class,'index']);
-    
     Route::get('tambahsekolah', [SekolahController::class,'create']);
     Route::post('post_sekolah', [SekolahController::class,'store'])->name('sekolah.store');
     Route::get('editsekolah/{id}', [SekolahController::class,'edit'])->name('edit.sekolah');
@@ -52,7 +50,6 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('hapus/{id}', [SekolahController::class,'destroy'])->name('hapus.sekolah');
     
     Route::get('/order', [OrderController::class,'index']);
-
     Route::post('total_order', [OrderController::class,'store'])->name('order.store');
 
 });

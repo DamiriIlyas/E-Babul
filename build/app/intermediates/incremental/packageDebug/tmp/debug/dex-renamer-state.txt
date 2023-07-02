@@ -1,4 +1,0 @@
-#Fri Jun 30 20:54:59 ICT 2023
-base.0=C\:\\Users\\Damiry Ilyas\\Music\\skripsi\\ebabul2\\ebabul\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
