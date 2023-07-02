@@ -49,6 +49,7 @@ class AuthController extends Controller
             'message' => 'Login Successfull',
             'name' => $user->name,
             'acess_token' => $user->createToken('auth_token')->plainTextToken,
+            'data' => Auth::user()
         ],);
     }
 }
