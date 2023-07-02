@@ -14,6 +14,6 @@ class Pembayaran extends Model
 
     public function formulirs()
     {
-        return $this->belongsTo(Formulir::class);
+        return $this->belongsTo(Formulir::class,'form_id');
     }
 }
