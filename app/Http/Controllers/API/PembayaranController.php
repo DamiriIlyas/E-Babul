@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pembayaran;
 use Illuminate\Http\Request;
-use App\Models\Formulir;
 use App\Helpers\ApiFormatter;
 use Exception;
-use App\Models\User;
 
-class FormulirController extends Controller
+class PembayaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,7 @@ class FormulirController extends Controller
      */
     public function index()
     {
-        $data = Formulir::all();
+        $data = Pembayaran::with('formulirs');
         if($data){
             return ApiFormatter::createApi(200, 'Success', $data);
         }else{
@@ -36,28 +35,18 @@ class FormulirController extends Controller
     {
         try{
             $request->validate([
-                'nama_lengkap' => 'required',
-                'nisn' => 'required',
-                'jenis_kelamin' => 'required',
-                'ttl' => 'required',
-                'alamat' => 'required',
-                'asal_sekolah' => 'required',
-                'tahun_lulus' => 'required',
-                'nama_wali' => 'required',
-                'nik' => 'required',
-                'pekerjaan_wali' => 'required',
-                'alamat_wali' => 'required',
-                'nomor_wa' => 'required',
-                'pilihan_sekolah' => 'required',
-                'user_id' => 'required',
+                'terbilang' => 'required',
+                'detail' => 'required',
+                'form_id' => 'required',
+                
             ]);
 
-            $createForm = $request->all();
+            $createPembayaran = $request->all();
 
-            $form = Formulir::create($createForm);
+            $pembayaran = Pembayaran::create($createPembayaran);
 
-            if($form){
-                return ApiFormatter::createApi(200, 'Success', $form);
+            if($pembayaran){
+                return ApiFormatter::createApi(200, 'Success', $pembayaran);
             }else{
                 return ApiFormatter::createApi(400, 'failed');
             }
