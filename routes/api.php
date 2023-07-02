@@ -23,7 +23,7 @@ Route::post('/masuk', [AuthController::class, 'login']);
 Route::post('/add-form',[FormulirController::class, 'store']);
 Route::get('/get-form',[FormulirController::class, 'index']);
 Route::get('/get-pembayaran',[PembayaranController::class, 'index']);
-Route::route('/add-pembayaran',[PembayaranController::class, 'store']);
+Route::post('/add-pembayaran',[PembayaranController::class, 'store']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
