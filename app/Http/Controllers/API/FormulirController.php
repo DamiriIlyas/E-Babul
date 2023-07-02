@@ -4,6 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Formulir;
+use App\Helpers\ApiFormatter;
+use Exception;
 
 class FormulirController extends Controller
 {
@@ -14,7 +17,12 @@ class FormulirController extends Controller
      */
     public function index()
     {
-        //
+        $data = Formulir::with('users');
+        if($data){
+            return ApiFormatter::createApi(200, 'Success', $data);
+        }else{
+            return ApiFormatter::createApi(400, 'failed');
+        }
     }
 
     /**
@@ -25,7 +33,36 @@ class FormulirController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $request->validate([
+                'nama_lengkap' => 'required',
+                'nisn' => 'required',
+                'jenis_kelamin' => 'required',
+                'ttl' => 'required',
+                'alamat' => 'required',
+                'asal_sekolah' => 'required',
+                'tahun_lulus' => 'required',
+                'nama_wali' => 'required',
+                'nik' => 'required',
+                'pekerjaan_wali' => 'required',
+                'alamat_wali' => 'required',
+                'nomor_wa' => 'required',
+                'pilihan_sekolah' => 'required',
+                'user_id' => 'required',
+            ]);
+
+            $createForm = $request->all();
+
+            $form = Formulir::create($createForm);
+
+            if($form){
+                return ApiFormatter::createApi(200, 'Success', $form);
+            }else{
+                return ApiFormatter::createApi(400, 'failed');
+            }
+        } catch (Exception $error){
+            return ApiFormatter::createApi(400, 'failed', $error);
+        }
     }
 
     /**
