@@ -17,7 +17,7 @@ class FormulirController extends Controller
      */
     public function index()
     {
-        $data = Formulir::with('user');
+        $data = Formulir::with('users');
         if($data){
             return ApiFormatter::createApi(200, 'Success', $data);
         }else{
