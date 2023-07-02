@@ -10,9 +10,10 @@ class Formulir extends Model
 {
     use HasFactory;
 
+    protected $table = 'formulirs';
     protected $guarded = ['id'];
 
-    public function user(){
+    public function users(){
         return $this->belongsTo(User::class);
     }
     
