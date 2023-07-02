@@ -17,7 +17,7 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        $data = Pembayaran::with('formulirs');
+        $data = Pembayaran::with('formulirs')->get();
         if($data){
             return ApiFormatter::createApi(200, 'Success', $data);
         }else{

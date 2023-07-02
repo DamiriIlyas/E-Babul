@@ -14,7 +14,8 @@ class Formulir extends Model
     protected $table = 'formulirs';
     protected $guarded = ['id'];
 
-    public function users(){
+    public function users()
+    {
         return $this->belongsTo(User::class);
     }
     

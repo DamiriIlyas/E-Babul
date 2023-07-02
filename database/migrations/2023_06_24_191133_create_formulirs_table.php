@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('alamat_wali');
             $table->string('nomor_wa');
             $table->string('pilihan_sekolah');
-            $table->foreignId('user_id')->unique()->constrained('users');
+            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }
