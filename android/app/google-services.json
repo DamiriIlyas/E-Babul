@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "684962435322",
+    "project_id": "ebabul",
+    "storage_bucket": "ebabul.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684962435322:android:054b455b04bfcaa241f943",
+        "android_client_info": {
+          "package_name": "com.example.ebabul"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684962435322-49rm4hvi62p6v80n9nuiaaa70eqjt593.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBl0gX8Pam7BbXNj3B1JHuES_dIIwg_QGM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "684962435322-49rm4hvi62p6v80n9nuiaaa70eqjt593.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
