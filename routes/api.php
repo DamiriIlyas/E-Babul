@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\FormulirController;
+use App\Http\Controllers\API\ImageController;
 use App\Http\Controllers\API\PembayaranController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,6 +25,7 @@ Route::post('/add-form',[FormulirController::class, 'store']);
 Route::get('/get-form',[FormulirController::class, 'index']);
 Route::get('/get-pembayaran',[PembayaranController::class, 'index']);
 Route::post('/add-pembayaran',[PembayaranController::class, 'store']);
+Route::post('/add-image',[ImageController::class, 'store']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
