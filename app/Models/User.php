@@ -41,6 +41,6 @@ class User extends Authenticatable
 
     public function formulirs()
     {
-        return $this->hasOne(Formulir::class);
+        return $this->hasMany(Formulir::class);
     }
 }
