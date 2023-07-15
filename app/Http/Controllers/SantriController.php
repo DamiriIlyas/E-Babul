@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Santri;
+use App\Models\Sekolah;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class SantriController extends Controller
 {
@@ -27,7 +29,11 @@ class SantriController extends Controller
      */
     public function create()
     {
-        return view('admin.santri.tambahsantri');
+        $data = [
+            'santri' => Santri::all(),
+            'sekolah' => Sekolah::all()
+        ];
+        return view('admin.santri.tambahsantri',$data);
     }
 
     /**
@@ -38,24 +44,28 @@ class SantriController extends Controller
      */
     public function store(Request $request)
     {
-        // $rules = [
-        //     'nama_santri' => 'required',
-        //     'nisn' => 'required',
-        //     'nik' => 'required',
-        //     'jenis_kelamin' => 'required',
-        //     'tempat_lahir' => 'required',
-        //     'tanggal_lahir' => 'required',
-        //     'alamat_lengkap' => 'required',
-        //     'tahun_lulus' => 'required',
-        //     'nama_wali' => 'required',
-        //     'alamat_wali' => 'required',
-        //     'pekerjaan_wali' => 'required',
-        //     'nik_wali' => 'required',
-        //     'nomor_telepon' => 'required',
-        //     'id_sekolah' => 'required',
-        //    ];
-        //    $this->validate($request,$rules);
-    
+        $request->validate ([
+            'nama_santri' => 'required',
+            'nisn' => 'required',
+            'nik' => 'required',
+            'jenis_kelamin' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'alamat_lengkap' => 'required',
+            'tahun_lulus' => 'required',
+            'nama_wali' => 'required',
+            'alamat_wali' => 'required',
+            'pekerjaan_wali' => 'required',
+            'nik_wali' => 'required',
+            'nomor_telepon' => 'required',
+            'id_sekolah' => 'required',
+            'foto' => 'required|mimes:jpeg,png,jpg,gif,svg|max:5000',
+           ]);
+        
+        $filename = $request->foto->getClientOriginalName();
+        $request->file('foto')->move('fotosantri/', $request->file('foto')->getClientOriginalName());
+        // $request->foto = $request->file('foto')->getClientOriginalName();
+        // $tanggal_lahir = Carbon::createFromFormat('d/m/Y', $request->tanggal_lahir)->format('Y-m-d');
            Santri::create(
             [
                 'nama_santri' => $request->nama_santri,
@@ -72,9 +82,10 @@ class SantriController extends Controller
                 'nik_wali' =>  $request->nik_wali,
                 'nomor_telepon' =>  $request->nomor_telepon,
                 'id_sekolah' =>  $request->id_sekolah,
+                'foto' => $filename
                 ]
             );
-            // dd($request);
+            // dd($request->all());
             return redirect('/santri');
         }
 

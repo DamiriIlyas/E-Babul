@@ -10,4 +10,9 @@ class Sekolah extends Model
     use HasFactory;
 
     protected $fillable = ['nama_sekolah'];
+
+    public function santri()
+    {
+        return $this->hasMany(Santri::class);
+    }
 }

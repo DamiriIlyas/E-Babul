@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pembayarans', function (Blueprint $table) {
+        Schema::create('tagihans', function (Blueprint $table) {
             $table->id();
-            $table->string('terbilang');
-            $table->string('detail');
-            $table->foreignId('form_id')->unique()->constrained('formulirs');
+            $table->unsignedBigInteger('santri_id');
+            $table->string('deskripsi');
+            $table->decimal('jumlah', 10, 2);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembayarans');
+        Schema::dropIfExists('tagihans');
     }
 };

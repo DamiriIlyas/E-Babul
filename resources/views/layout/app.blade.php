@@ -19,6 +19,7 @@
 
     <!-- Custom styles -->
     <link href="{{asset('templateadmin/admin')}}/css/sb-admin-2.min.css" rel="stylesheet">
+    
 
 </head>
 
@@ -68,7 +69,12 @@
               <hr class="sidebar-divider my-0">
 
             <li class="nav-item">
-                <a class="nav-link" href="/order">
+                <a class="nav-link" href="/tagihan">
+                    <i class="fas fa-fw fa-money-bill"></i>
+                    <span>Tagihan</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pembayaran">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Pembayaran</span></a>
             </li>
@@ -199,6 +205,25 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('templateadmin/admin')}}/js/sb-admin-2.min.js"></script>
+
+
+    
+<!-- Load jQuery and jQuery UI -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- Initialize Datepicker -->
+<script>
+    $(function() {
+        $(".datepicker").datepicker({
+            dateFormat: 'dd/mm/yy',
+            changeYear: true,
+            changeMonth: true,
+            yearRange: '1900:2050' // Optional: Set the desired year range
+        });
+    });
+</script>
 
 </body>
 

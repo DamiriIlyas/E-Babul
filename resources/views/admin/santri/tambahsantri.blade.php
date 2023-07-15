@@ -9,7 +9,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Formulir Pendaftaran</h6>
     </div>
     <div class="card-body">
-        <form action="/post_santri" method="POST">
+        <form action="/post_santri" method="POST" enctype="multipart/form-data">
           @csrf
             <div class="mb-3">
               <label for="exampleInput" class="form-label">Nama Lengkap</label>
@@ -33,7 +33,7 @@
             </div>
             <div class="mb-3">
               <label for="exampleInput" class="form-label">Tanggal Lahir</label>
-              <input type="text" name="tanggal_lahir" class="form-control">
+              <input type="text" name="tanggal_lahir" class="form-control datepicker" placeholder="DD/MM/YYYY" autocomplete="off" required>
             </div>
             <div class="mb-3">
               <label for="exampleInput" class="form-label">Alamat Lengkap</label>
@@ -62,16 +62,27 @@
             <div class="mb-3">
               <label for="exampleInput" class="form-label">Nomor telepon</label>
               <input type="number" name="nomor_telepon" class="form-control">
-            </div>
-            
-            {{-- <div class="mb-3">
-              <label for="exampleInput" class="form-label">Pilihan Sekolah</label>
-              <input type="text" name="id_sekolah" class="form-control">
-            </div> --}}
+            </div>         
+            <div class="mb-3">
+              <label for="id_sekolah" class="form-label">Pilihan Sekolah</label>
+              <select name="id_sekolah" class="form-control">
+                <option value="">Pilih Sekolah</option>
+                  @foreach ($sekolah as $item)
+                      <option value="{{ $item->id }}">{{ $item->nama_sekolah }}</option>
+                  @endforeach
+              </select>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInput" class="form-label">Foto 4x3</label>
+            <input type="file" name="foto" class="form-control">
+          </div>
+          
             
             <button type="submit" class="btn btn-primary">Kirim</button>
         </form>
     </div>
 </div>
+
+
 
 @endsection

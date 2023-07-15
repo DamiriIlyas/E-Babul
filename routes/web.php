@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\SantriController;
 use App\Http\Controllers\SekolahController;
+use App\Http\Controllers\TagihanController;
 use App\Models\Pembayaran;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -49,9 +50,16 @@ Route::group(['middleware' => 'auth'], function()
     Route::post('update_sekolah/{id}', [SekolahController::class,'update'])->name('sekolah.update');
     Route::get('hapus/{id}', [SekolahController::class,'destroy'])->name('hapus.sekolah');
     
+
+    Route::get('/tagihan',[TagihanController::class,'index'])->name('tagihan.index');
+    Route::post('/tagihan/store',[TagihanController::class,'store'])->name('tagihan.store');
+
     Route::get('/order', [OrderController::class,'index']);
     Route::post('total_order', [OrderController::class,'store'])->name('order.store');
 
+    Route::get('/pembayaran',[PembayaranController::class,'index']);
+    Route::post('/pembayaran/store', [PembayaranController::class, 'store'])->name('pembayaran.store');
+    Route::get('/pembayaran/checkout/{santriId}', [PembayaranController::class, 'checkout'])->name('pembayaran.checkout');
 });
 
 // Auth::routes();
