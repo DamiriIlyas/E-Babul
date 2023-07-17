@@ -49,8 +49,10 @@ class FormulirController extends Controller
                 'alamat_wali' => 'required',
                 'nomor_wa' => 'required',
                 'pilihan_sekolah' => 'required',
-                'user_id' => 'required',
                 'ijazah' => 'required',
+                'skhu' => 'required',
+                'foto' => 'required',
+                'user_id' => 'required'
             ]);
 
             $createForm = $request->all();
