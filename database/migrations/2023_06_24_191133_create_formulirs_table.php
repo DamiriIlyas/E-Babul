@@ -29,6 +29,8 @@ return new class extends Migration
             $table->string('nomor_wa');
             $table->string('pilihan_sekolah');
             $table->string('ijazah');
+            $table->string('skhu');
+            $table->string('foto');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
