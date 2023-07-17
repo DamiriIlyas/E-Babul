@@ -26,6 +26,8 @@ Route::get('/get-form',[FormulirController::class, 'index']);
 Route::get('/get-pembayaran',[PembayaranController::class, 'index']);
 Route::post('/add-pembayaran',[PembayaranController::class, 'store']);
 Route::post('/add-image',[ImageController::class, 'store']);
+Route::post('/add-skhu',[ImageController::class, 'skhu']);
+Route::post('/add-foto',[ImageController::class, 'foto']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

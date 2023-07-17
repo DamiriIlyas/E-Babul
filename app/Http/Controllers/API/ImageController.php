@@ -45,6 +45,45 @@ class ImageController extends Controller
         return '';
     }
 
+    public function skhu(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'image' => 'max:10000|mimes:jpg,jpeg,png,gif',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()->getMessages()], 400);
+        }
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $file_path = $image->store('public/image');
+            $url = Storage::url($file_path);
+            return url($url);
+        }
+
+        return '';
+    }
+    public function foto(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'image' => 'max:10000|mimes:jpg,jpeg,png,gif',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()->getMessages()], 400);
+        }
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $file_path = $image->store('public/image');
+            $url = Storage::url($file_path);
+            return url($url);
+        }
+
+        return '';
+    }
+
     /**
      * Display the specified resource.
      *
