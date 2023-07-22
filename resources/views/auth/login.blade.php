@@ -3,13 +3,13 @@
 
 <head>
 
-    <meta charset="utf-8">
+    <meta charset="utf-10">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Masuk</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('templateadmin/admin/')}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -32,24 +32,24 @@
         <br>
         <br>
         <div class="row justify-content-center">
-            <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="col-xl-5 col-lg-30 col-md-30">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
+                    <div class="card-body p-0 center">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             {{-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> --}}
-                            <div class="col-lg-6">
+                            <div class="col-lg-20">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Admin</h1>
                                     </div>
                                     <form class="user" action="/postlogin" method="POST">
                                         {{csrf_field()}}
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 name="email"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Masukkan Email Anda...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
@@ -58,19 +58,18 @@
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
+                                                <label class="custom-control-label" for="customCheck">Ingat Sandi</label>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">LOGIN</button>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">MASUK</button>
                                         <hr>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="#l">Forgot Password?</a>
+                                        <a class="small" href="#">Lupa Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="#">Create an Account!</a>
+                                        <a class="small" href="#">Buat Akun Baru!</a>
                                     </div>
                                 </div>
                             </div>

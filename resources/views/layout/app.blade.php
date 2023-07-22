@@ -45,7 +45,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="/home">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-home"></i>
                     <span>Dashboard</span></a>
             </li>
             
@@ -62,7 +62,7 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="/sekolah">
-                    <i class="fas fa-fw fa-landmark"></i>
+                    <i class="fas fa-fw fa-school"></i>
                     <span>Sekolah</span></a>
             </li>
               <!-- Divider -->
@@ -70,9 +70,12 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="/tagihan">
-                    <i class="fas fa-fw fa-money-bill"></i>
+                    <i class="fas fa-fw fa-hand-holding-usd"></i>
                     <span>Tagihan</span></a>
             </li>
+             <!-- Divider -->
+             <hr class="sidebar-divider my-0">
+             
             <li class="nav-item">
                 <a class="nav-link" href="/pembayaran">
                     <i class="fas fa-fw fa-money-bill"></i>
@@ -159,7 +162,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Babul Futuh @2023</span>
+                        <span>Copyright &copy; Babul Futuh 2023</span>
                     </div>
                 </div>
             </footer>

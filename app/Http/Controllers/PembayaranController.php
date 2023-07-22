@@ -64,12 +64,12 @@ class PembayaranController extends Controller
         }
 
         $serverKey = config('midtrans.serverKey');
-    $isProduction = config('midtrans.isProduction');
-    $is3ds = true;
+        $isProduction = config('midtrans.isProduction');
+        $is3ds = true;
 
-    Config::$serverKey = $serverKey;
-    Config::$isProduction = $isProduction;
-    Config::$is3ds = $is3ds;
+        Config::$serverKey = $serverKey;
+        Config::$isProduction = $isProduction;
+        Config::$is3ds = $is3ds;
 
         $transactionDetails = [
             'order_id' => uniqid(),
@@ -102,6 +102,6 @@ class PembayaranController extends Controller
 
         // Simpan data pembayaran ke database atau sesuai kebutuhan aplikasi Anda
 
-        return redirect()->away(Snap::createTransaction($transactionData)->redirect_url);
+        return Snap::createTransaction($transactionData)->redirect_url;
     }
 }

@@ -50,8 +50,6 @@ class FormulirController extends Controller
                 'nomor_wa' => 'required',
                 'pilihan_sekolah' => 'required',
                 'ijazah' => 'required',
-                'skhu' => 'required',
-                'foto' => 'required',
                 'user_id' => 'required'
             ]);
 
